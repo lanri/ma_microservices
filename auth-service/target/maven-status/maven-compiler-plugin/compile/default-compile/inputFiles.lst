@@ -1,0 +1,5 @@
+/Users/lanri/IdeaProjects/ma_microsevices/auth-service/src/main/java/com/ma/microservice/AuthServiceApplication.java
+/Users/lanri/IdeaProjects/ma_microsevices/auth-service/src/main/java/com/ma/microservice/model/LoginRequest.java
+/Users/lanri/IdeaProjects/ma_microsevices/auth-service/src/main/java/com/ma/microservice/controller/UserController.java
+/Users/lanri/IdeaProjects/ma_microsevices/auth-service/src/main/java/com/ma/microservice/config/TokenCustomizerConfig.java
+/Users/lanri/IdeaProjects/ma_microsevices/auth-service/src/main/java/com/ma/microservice/config/AuthorizationServerConfig.java

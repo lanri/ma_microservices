@@ -1,0 +1,5 @@
+com/ma/microservice/config/AuthorizationServerConfig.class
+com/ma/microservice/model/LoginRequest.class
+com/ma/microservice/AuthServiceApplication.class
+com/ma/microservice/config/TokenCustomizerConfig.class
+com/ma/microservice/controller/UserController.class
