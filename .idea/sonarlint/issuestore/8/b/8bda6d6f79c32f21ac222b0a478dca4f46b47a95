@@ -1,0 +1,9 @@
+
+]	java:S125+"<This block of commented-out lines of code should be removed.(áãÀ‰ÿÿÿÿÿ8º’Ìı…3
+¾
+java:S1128
+" Remove this unused import 'org.springframework.security.oauth2.server.authorization.config.annotation.web.configuration.OAuth2AuthorizationServerConfiguration'.(ÙëåŸ8€ø«û…3
+
+java:S1128"qRemove this unused import 'org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter'.(÷ìïŠ8¿’Ìı…3
+O
+java:S1068"-Remove this unused "jwtFilter" private field.(Í‘ø‰ıÿÿÿÿ8Â’Ìı…3

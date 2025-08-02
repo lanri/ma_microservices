@@ -1,6 +1,13 @@
 spring:
   application:
     name: auth-service
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8081
+          jwk-set-uri: ${JWK_URI:http://localhost:8081/oauth2/jwks}
+          # only needed for RS256-based JWTs
 
 server:
   port: 8081
@@ -16,13 +23,7 @@ logging:
     org.springframework.web: DEBUG
 
 # Spring Security Configuration (if using method-level security or role-based)
-security:
-  oauth2:
-    resourceserver:
-      jwt:
-        issuer-uri: http://localhost:8081
-        jwk-set-uri: http://localhost:8081/oauth2/jwks
-        # only needed for RS256-based JWTs
+
 
 # Custom authorization-related properties (you can reference these in code)
 auth:

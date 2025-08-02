@@ -1,0 +1,21 @@
+
+\
+java:S2184"FCast one of the operands of this multiplication operation to a "long".(Ôâ‚ü
+j	java:S116
+"URename this field "SECRET_KEY" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…”¯º
+o	java:S116"ZRename this field "EXPIRATION_TIME" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôâ‚ü
+7
+java:S1170
+"!Make this final field static too.(…”¯º
+7
+java:S1170"!Make this final field static too.(Ôâ‚ü
+K
+java:S1874"0Remove this use of "signWith"; it is deprecated.(¦šìöýÿÿÿÿ
+I
+java:S1874".Remove this use of "parser"; it is deprecated.(Ñ©«Áþÿÿÿÿ
+P
+java:S1874"5Remove this use of "setSigningKey"; it is deprecated.(Ñ©«Áþÿÿÿÿ
+D
+java:S1874".Remove this use of "parser"; it is deprecated.(ÄÞ¼ë
+K
+java:S1874"5Remove this use of "setSigningKey"; it is deprecated.(ÄÞ¼ë

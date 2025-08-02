@@ -9,6 +9,7 @@ services:
       - "8081:8081"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - JWK_URI=http://auth-service:8081/oauth2/jwks
     networks:
       - spring-net
 
@@ -25,7 +26,18 @@ services:
       - auth-service
     networks:
       - spring-net
-
+  diktum-service:
+    build: ./diktum-service
+    ports:
+      - "8083:8083"
+    environment:
+      - JWT_PUBLIC_KEY_PATH=/app/keys/public_key.pem
+      - OAUTH_REDIRECT_URL=http://auth-service:8081/oauth/authorize
+      - OAUTH_TOKEN_URL=http://auth-service:8081/oauth/token
+    depends_on:
+      - auth-service
+    networks:
+      - spring-net
 networks:
   spring-net:
     driver: bridge

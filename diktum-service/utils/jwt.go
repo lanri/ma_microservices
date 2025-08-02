@@ -5,6 +5,7 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 	"errors"
+	"fmt"
 	"io/ioutil"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -47,16 +48,30 @@ func ValidateJWT(tokenStr string) (*Claims, error) {
 	claims := &Claims{}
 
 	token, err := jwt.ParseWithClaims(tokenStr, claims, func(token *jwt.Token) (interface{}, error) {
-		// Only allow RS256
+		// Debug: cetak algoritma token
+		fmt.Println("🔍 Token alg:", token.Header["alg"])
+
+		// Pastikan RS256
 		if _, ok := token.Method.(*jwt.SigningMethodRSA); !ok {
-			return nil, errors.New("unexpected signing method")
+			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
 		}
 		return publicKey, nil
 	})
 
-	if err != nil || !token.Valid {
-		return nil, errors.New("invalid or expired token")
+	if err != nil {
+		fmt.Println("❌ JWT Parse error:", err)
+		return nil, fmt.Errorf("JWT parse error: %w", err)
 	}
+
+	if !token.Valid {
+		fmt.Println("❌ JWT invalid (but parsed)")
+		return nil, errors.New("token parsed but invalid")
+	}
+
+	fmt.Println("✅ JWT Valid!")
+	fmt.Println("👤 Subject:", claims.Subject)
+	fmt.Println("📅 Exp:", claims.ExpiresAt)
+	fmt.Println("📅 Iat:", claims.IssuedAt)
 
 	return claims, nil
 }
