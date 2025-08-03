@@ -5,8 +5,10 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8081
+          issuer-uri:  ${ISSUER_URI:http://localhost:8081}
           jwk-set-uri: ${JWK_URI:http://localhost:8081/oauth2/jwks}
+      #authorization-server:
+        #issuer: ${ISSUER_URI:http://localhost:8081}  # Tambahkan ini jika menggunakan Spring Authorization Server
           # only needed for RS256-based JWTs
 
 server:

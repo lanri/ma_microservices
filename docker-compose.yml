@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   auth-service:
+    image: ma_microsevices-auth-service:latest
     build:
       context: ./auth-service
     container_name: auth-service
@@ -9,11 +10,13 @@ services:
       - "8081:8081"
     environment:
       - SPRING_PROFILES_ACTIVE=docker
+      - ISSUER_URI=http://auth-service:8081
       - JWK_URI=http://auth-service:8081/oauth2/jwks
     networks:
-      - spring-net
+      - ma-net
 
   jdih-service:
+    image: ma_microsevices-jdih-service:latest
     build:
       context: ./jdih-service
     container_name: jdih-service
@@ -25,11 +28,14 @@ services:
     depends_on:
       - auth-service
     networks:
-      - spring-net
+      - ma-net
   diktum-service:
+    image: ma_microsevices-diktum-service:latest
     build: ./diktum-service
     ports:
       - "8083:8083"
+    volumes:
+      - /Users/lanri/IdeaProjects/ma_microsevices/diktum-service/keys/public_key.pem:/app/keys/public_key.pem:ro
     environment:
       - JWT_PUBLIC_KEY_PATH=/app/keys/public_key.pem
       - OAUTH_REDIRECT_URL=http://auth-service:8081/oauth/authorize
@@ -37,7 +43,8 @@ services:
     depends_on:
       - auth-service
     networks:
-      - spring-net
+      - ma-net
 networks:
-  spring-net:
-    driver: bridge
+  ma-net:
+    driver: overlay
+    attachable: true

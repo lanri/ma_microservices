@@ -21,5 +21,9 @@ RUN go build -o diktum-service
 # Expose port 8083
 EXPOSE 8083
 
+# Tambah entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Command to run the executable
 CMD ["./diktum-service"]
